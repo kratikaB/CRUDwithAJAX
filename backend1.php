@@ -58,10 +58,36 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) &&
 	mysqli_query($conn, $query);
 }
 //delete the record
-if(isset($_GET['deleteid'])){
-	$id = $_GET['deleteid'];
+if(isset($_POST['deleteid'])){
+	$id = $_POST['deleteid'];
 	$deletequery = "DELETE FROM crudtable where id =$id";
 	mysqli_query($conn, $deletequery);
 }
 
+//update the record
+if(isset($_POST['id']) && isset($_POST['id'])!= "")
+{
+	$id=$_POST['id'];
+	$query = "SELECT * FROM crudtable  WHERE id =$id";
+		if (!$result = mysqli_query($conn , $query)){
+			exit(mysqli_error());
+		}
+
+		$response = array();
+
+		if(mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+
+				$response = $row;
+				
+			}
+		}else{
+			 $response['status'] = 200;
+			 $response['message'] = "Data not found!";
+			 echo json_encode($response);
+			}
+else{
+		$response['status'] = 200;
+		$response['message'] = "invalid request";
+		}
 ?>

@@ -31,14 +31,13 @@ jQuery(document).ready(function(){
 		});
 	}
 //deleting data
-debugger;
 	function deleteuser(deleteid){
 		var conf = confirm("are you sure");
 		if(conf==true){
 			jQuery.ajax({
 			data: { deleteid:deleteid },
-			method: 'get',
-			url:"backend1. php",
+			method: 'post',
+			url:"backend1.php",
 			success:function(data,status)
 			{
 				readRecords();
@@ -48,7 +47,20 @@ debugger;
 		}
 
 	}
-//update data
- function GetuserDeatils(id){
-
- }
+//form-modal
+ 	function GetuserDeatils(id){
+	 	jQuery('#hidden_user_id').val(id);
+	 	jQuery.post("backend1.php", {
+	 		id:id
+	 		}, function(data,status){
+	 			var user = JSON. parse(data);
+	 			jQuery('#update_fname').val(user.fname);
+	 			jQuery('#update_lname').val(user.lname);
+	 			jQuery('#update_email').val(user.email);
+	 			jQuery('#update_contact').val(user.contact);
+	 			jQuery('#update_address').val(user.address);
+	 		}
+	 	);
+	 	jQuery('#update_user_modal').modal("show");
+	 }
+	//update

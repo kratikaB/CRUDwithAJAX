@@ -65,6 +65,59 @@
 		    </div>
 		  </div>
 		</div>
+		<!-- UPDATE MODEL-->
+		
+		<!-- The Modal -->
+		<div class="modal" id="update_user_modal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title">update form</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+
+		      <!-- Modal body -->
+		      <form id="update_form">
+		      <div class="modal-body">
+		        <div class="form-group">
+		        	<label>First name:</label>
+		        	<input type="text" name="update_fname" id="update_fname" class="form-control" placeholder="enter your  first name">
+		        </div>
+
+		         <div class="form-group">
+		        	<label>Last name:</label>
+		        	<input type="text" name="update_lname" id="update_lname" class="form-control" placeholder="enter your last name">
+		        </div>
+
+		         <div class="form-group">
+		        	<label>Email:</label>
+		        	<input type="email" name="update_email" id="update_email" class="form-control" placeholder="enter your email">
+		        </div>
+
+		          <div class="form-group">
+		        	<label>Contact:</label>
+		        	<input type="text" name="update_contact" id="update_contact" class="form-control" placeholder="enter your contact">
+		        </div>
+
+		         <div class="form-group">
+		        	<label>Address:</label>
+		        	<TEXTAREA cols="50" name="update_address" id="update_address" class="form-control" placeholder="enter your address"></TEXTAREA>
+		        </div>
+
+		      </div>
+
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="updateuserdetails()">Save</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <input type="hidden" name="" id="hidden_user_id">
+		      </div>
+		      </form>
+		    </div>
+		  </div>
+		</div>
 
 	</div>
 
