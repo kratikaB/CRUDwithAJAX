@@ -66,7 +66,7 @@
 		  </div>
 		</div>
 		<!-- UPDATE MODEL-->
-		
+
 		<!-- The Modal -->
 		<div class="modal" id="update_user_modal">
 		  <div class="modal-dialog">
@@ -110,7 +110,7 @@
 
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
-		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="updateuserdetails()">Save</button>
+		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="updateuserdetails()">update</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		        <input type="hidden" name="" id="hidden_user_id">
 		      </div>

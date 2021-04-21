@@ -84,10 +84,26 @@ if(isset($_POST['id']) && isset($_POST['id'])!= "")
 		}else{
 			 $response['status'] = 200;
 			 $response['message'] = "Data not found!";
+			}
 			 echo json_encode($response);
 			}
-else{
-		$response['status'] = 200;
-		$response['message'] = "invalid request";
-		}
+else
+{
+	$response['status'] = 200;
+	$response['message'] = "invalid request";
+}
+/*//update table
+if(isset($_POST['hidden_user_id'])){
+	$hidden_user_id = $_POST['hidden_user_id'];
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$email = $_POST['email'];
+	$contact = $_POST['contact'];
+	$address = $_POST['address'];
+
+	$update_query = "UPDATE crudtable SET fname='$fname', lname='$lname', email='$email' , contact='$contact' , address='$address' ,  WHERE id='$hidden_user_id' ");
+	
+	mysqli_query($conn, $update_query);
+}*/
+
 ?>

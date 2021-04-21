@@ -63,4 +63,28 @@ jQuery(document).ready(function(){
 	 	);
 	 	jQuery('#update_user_modal').modal("show");
 	 }
-	//update
+	/*//update
+	function updateuserdetails(){
+		 var fname = jQuery('#update_fname').val();
+		 var lname = jQuery('#update_lname').val();
+		 var email = jQuery('#update_email').val();
+		 var conatct = jQuery('#update_contact').val();
+		 var address = jQuery('#update_address').val();
+
+		 var hidden_user_id = jQuery('#hidden_user_id').val();
+
+		 $.post("backend1.php", {
+		 	hidden_user_id:hidden_user_id,
+		 	fname:fname,
+		 	lname:lname,
+		 	email:email,
+		 	conatct:conatct,
+		 	address:address,
+		 },
+		 function(data,status){
+		 	jQuery('#update_user_modal').modal("hide");
+		 	readRecords();
+		 }
+		 );
+
+	}*/
