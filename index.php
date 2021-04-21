@@ -4,7 +4,6 @@
 	<title>Crud using ajax</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	
 </head>
 <body>
 	<div class="container">
@@ -28,6 +27,7 @@
 		      </div>
 
 		      <!-- Modal body -->
+		      <form id="data_form">
 		      <div class="modal-body">
 		        <div class="form-group">
 		        	<label>First name:</label>
@@ -58,10 +58,10 @@
 
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
-		      	 <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRecord()">Save</button>
+		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="insertdata()">Save</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		      </div>
-
+		      </form>
 		    </div>
 		  </div>
 		</div>
@@ -69,30 +69,9 @@
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		function addRecord(){
-			var fname = $('#fname').val();
-			var lname = $('#lname').val();
-			var email = $('#email').val();
-			var contact = $('#contact').val();
-			var address = $('#address').val();
-
-			$.ajax({
-				url:"backend1.php",
-				type: 'post',
-				data: { fname : fname,
-						lname : lname,
-						email : email,
-						contact : contact,
-						address : address
-				},
-				success:function(data,status)
-				 readRecords();
-
-			});
-		}
-	</script>
+	<script src="seperate.js"></script> 
 </body>
 </html>

@@ -2,12 +2,66 @@
 
 $conn =  mysqli_connect('localhost','root','1234','CRUD');
 
-extract($_POST);
+// extract the data
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$contact = $_POST['contact'];
+$address = $_POST['address'];
+
+if(isset($_POST['readrecords'])){
+	$data = '<table class ="table table-bordered table-striped">
+		<tr>
+			<th>No.</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Email</th>
+			<th>Contact </th>
+			<th>Address</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>';
+	$displayquery = "SELECT * FROM crudtable";
+	$result =  mysqli_query($conn, $displayquery);
+
+	if(mysqli_num_rows($result)>0){
+		// $number = 1;
+		while ($row = mysqli_fetch_array($result)) {
+			$data .='<tr>
+				<td>' .$row['id']. '</td>
+				<td>' .$row['fname']. '</td>
+				<td>' .$row['lname']. '</td>
+				<td>' .$row['email']. '</td>
+				<td>' .$row['contact'].'</td>
+				<td>' .$row['address']. '</td>
+				<td>
+					<button onclick="GetuserDeatils('.$row['id'].')" class="btn btn-warning">EDIT</button>
+				</td>
+				<td>
+					<button onclick="deleteuser('.$row['id'].')" class="btn btn-danger">DELETE</button>
+				</td>
+			</tr>';
+			// $number++;
+
+		}
+	}
+	$data .='</table>';
+	echo $data;
+}
 
 if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['address']))
 {
-	$query = " INSERT INTO `crudtable`(`fname`, `lname`, `email`, `contact`, `address`) VALUES ( '$fname', '$lname', '$email', '$contact', '$address')";
+	// var_dump($fname, 'Hello there');
+	$query = "INSERT INTO crudtable (fname, lname, email, contact, address) VALUES ( '$fname', '$lname', '$email', '$contact', '$address')";
+	// var_dump($query, 'Hello there 2');
+
 	mysqli_query($conn, $query);
+}
+//delete the record
+if(isset($_GET['deleteid'])){
+	$id = $_GET['deleteid'];
+	$deletequery = "DELETE FROM crudtable where id =$id";
+	mysqli_query($conn, $deletequery);
 }
 
 ?>
