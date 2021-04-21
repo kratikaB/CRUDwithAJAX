@@ -63,7 +63,7 @@ jQuery(document).ready(function(){
 	 	);
 	 	jQuery('#update_user_modal').modal("show");
 	 }
-	/*//update
+	//update
 	function updateuserdetails(){
 		 var fname = jQuery('#update_fname').val();
 		 var lname = jQuery('#update_lname').val();
@@ -73,7 +73,7 @@ jQuery(document).ready(function(){
 
 		 var hidden_user_id = jQuery('#hidden_user_id').val();
 
-		 $.post("backend1.php", {
+		 jQuery.post("backend1.php", {
 		 	hidden_user_id:hidden_user_id,
 		 	fname:fname,
 		 	lname:lname,
@@ -87,4 +87,4 @@ jQuery(document).ready(function(){
 		 }
 		 );
 
-	}*/
+	}

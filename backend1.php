@@ -92,8 +92,9 @@ else
 	$response['status'] = 200;
 	$response['message'] = "invalid request";
 }
-/*//update table
+//update table
 if(isset($_POST['hidden_user_id'])){
+
 	$hidden_user_id = $_POST['hidden_user_id'];
 	$fname = $_POST['fname'];
 	$lname = $_POST['lname'];
@@ -101,9 +102,9 @@ if(isset($_POST['hidden_user_id'])){
 	$contact = $_POST['contact'];
 	$address = $_POST['address'];
 
-	$update_query = "UPDATE crudtable SET fname='$fname', lname='$lname', email='$email' , contact='$contact' , address='$address' ,  WHERE id='$hidden_user_id' ");
+	$query = "UPDATE crudtable SET fname='$fname', lname='$lname', email='$email' , contact='$contact' , address='$address' ,  WHERE id='$hidden_user_id' ";
 	
-	mysqli_query($conn, $update_query);
-}*/
+	mysqli_query($conn, $query);
+}
 
 ?>
