@@ -8,7 +8,7 @@ $lname = $_POST['lname'];
 $email = $_POST['email'];
 $contact = $_POST['contact'];
 $address = $_POST['address'];
-
+//read data
 if(isset($_POST['readrecords'])){
 	$data = '<table class ="table table-bordered table-striped">
 		<tr>
@@ -48,13 +48,12 @@ if(isset($_POST['readrecords'])){
 	$data .='</table>';
 	echo $data;
 }
-
+//insert data
 if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['address']))
 {
 	// var_dump($fname, 'Hello there');
 	$query = "INSERT INTO crudtable (fname, lname, email, contact, address) VALUES ( '$fname', '$lname', '$email', '$contact', '$address')";
-	// var_dump($query, 'Hello there 2');
-
+	
 	mysqli_query($conn, $query);
 }
 //delete the record
@@ -102,7 +101,7 @@ if(isset($_POST['hidden_user_id'])){
 	$contact = $_POST['contact'];
 	$address = $_POST['address'];
 
-	$query = "UPDATE crudtable SET fname='$fname', lname='$lname', email='$email' , contact='$contact' , address='$address' ,  WHERE id='$hidden_user_id' ";
+	$query = "UPDATE crudtable SET fname='$fname', lname='$lname', email='$email' , contact='$contact' , address='$address'  WHERE id='$hidden_user_id' ";
 	
 	mysqli_query($conn, $query);
 }

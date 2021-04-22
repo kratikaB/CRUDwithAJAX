@@ -1,5 +1,38 @@
 jQuery(document).ready(function(){
 	readRecords();
+	  /*jQuery('#validate_fname').hide();
+	  jQuery('#validate_lname').hide();
+  	  jQuery('#validate_email').hide();
+  	  jQuery('#validate_contact').hide();
+  	  jQuery('#validate_address').hide();
+
+  	    let vfname = true;
+  	    let vlname = true;
+  		let vmail = true;
+  		let vcontact = true;
+  		let vaddress = true;
+
+  	jQuery('#fname').keyup(function() {
+    fn_check();
+  });
+
+  function fn_check() {
+    let user_val = jQuery('#fn').val();
+    let name_regex = /^[a-zA-Z]+$/;
+    if (!user_val.match(name_regex) || user_val.length == "") {
+      jQuery('#validate_fname').show();
+      jQuery('#validate_fname').html("** use only alphabatics A-Z or a-z");
+      jQuery('#validate_fname').focus();
+      vfname = false;
+      return false;
+    } else {
+
+      jQuery('#validate_fname').hide();
+      return true;
+
+    }
+  }*/
+
 });
 //fetching data
 
@@ -68,7 +101,7 @@ jQuery(document).ready(function(){
 		 var fname = jQuery('#update_fname').val();
 		 var lname = jQuery('#update_lname').val();
 		 var email = jQuery('#update_email').val();
-		 var conatct = jQuery('#update_contact').val();
+		 var contact = jQuery('#update_contact').val();
 		 var address = jQuery('#update_address').val();
 
 		 var hidden_user_id = jQuery('#hidden_user_id').val();
@@ -78,7 +111,7 @@ jQuery(document).ready(function(){
 		 	fname:fname,
 		 	lname:lname,
 		 	email:email,
-		 	conatct:conatct,
+		 	contact:contact,
 		 	address:address,
 		 },
 		 function(data,status){

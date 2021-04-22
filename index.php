@@ -32,26 +32,31 @@
 		        <div class="form-group">
 		        	<label>First name:</label>
 		        	<input type="text" name="fname" id="fname" class="form-control" placeholder="enter your  first name">
+		        	    <p id="validate_fname" class="text-danger font-weight-bold"></p>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Last name:</label>
 		        	<input type="text" name="lname" id="lname" class="form-control" placeholder="enter your last name">
+		        	<p id="validate_lname" class="text-danger font-weight-bold"></p>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Email:</label>
 		        	<input type="email" name="email" id="email" class="form-control" placeholder="enter your email">
+		        	 <p id="validate_email" class="text-danger font-weight-bold"></p>
 		        </div>
 
 		          <div class="form-group">
 		        	<label>Contact:</label>
 		        	<input type="text" name="contact" id="contact" class="form-control" placeholder="enter your contact">
+		        	<p id="validate_contact" class="text-danger font-weight-bold"></p>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Address:</label>
 		        	<TEXTAREA cols="50" name="address" id="address" class="form-control" placeholder="enter your address"></TEXTAREA>
+		        		<p id="validate_address" class="text-danger font-weight-bold"></p>
 		        </div>
 
 		      </div>
@@ -112,7 +117,7 @@
 		      <div class="modal-footer">
 		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="updateuserdetails()">update</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-		        <input type="hidden" name="" id="hidden_user_id">
+		        <input type="hidden" name="hidden_user_id" id="hidden_user_id">
 		      </div>
 		      </form>
 		    </div>
