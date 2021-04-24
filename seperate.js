@@ -112,6 +112,7 @@ jQuery(document).ready(function(){
 		    }
 		});
 
+
   		jQuery('#savebutton').on('click',function(e){
             e.preventDefault();
             jQuery("#data_form")[0].reset();
@@ -275,26 +276,7 @@ jQuery(document).ready(function(){
 	 	);
 	 	jQuery('#update_user_modal').modal("show");
 	 }
-	
-	// jQuery(document).on('click','#updatebutton',function(e) {
-	// 	var data = jQuery("#update_form").serialize();
-	// 	jQuery.ajax({
-	// 		data: data,
-	// 		type: "post",
-	// 		url: "backend1.php",
-	// 		success: function(dataResult){
-	// 				// var dataResult =JSON.parse(dataResult);
-	// 				if(dataResult.statusCode==200){
-	// 					jQuery('#update_user_modal').modal('hide');
-	// 					alert('Data updated successfully !'); 
- //                        location.reload();						
-	// 				}
-	// 				else if(dataResult.statusCode==201){
-	// 				   alert(dataResult);
-	// 				}
-	// 		}
-	// 	});
-	// });
+
 	function updateuserdetails(){
 		 var fname = jQuery('#update_fname').val();
 		 var lname = jQuery('#update_lname').val();
