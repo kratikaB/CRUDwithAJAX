@@ -1,10 +1,17 @@
 jQuery(document).ready(function(){
 	readRecords();
-	  /*jQuery('#validate_fname').hide();
+	  jQuery('#validate_fname').hide();
 	  jQuery('#validate_lname').hide();
   	  jQuery('#validate_email').hide();
   	  jQuery('#validate_contact').hide();
   	  jQuery('#validate_address').hide();
+
+  	  jQuery('#validate_update_fname').hide();
+	  jQuery('#validate_update_lname').hide();
+  	  jQuery('#validate_update_email').hide();
+  	  jQuery('#validate_update_contact').hide();
+  	  jQuery('#validate_update_address').hide();
+
 
   	    let vfname = true;
   	    let vlname = true;
@@ -12,27 +19,198 @@ jQuery(document).ready(function(){
   		let vcontact = true;
   		let vaddress = true;
 
-  	jQuery('#fname').keyup(function() {
-    fn_check();
-  });
+  		let ufname = true;
+  	    let ulname = true;
+  		let umail = true;
+  		let ucontact = true;
+  		let uaddress = true;
+		
+		jQuery('#fname').keyup(function() {
+		let user_fname = jQuery('#fname').val();
+	    let fname_regex = /^[a-zA-Z]+$/;
+	    if (!user_fname.match(fname_regex) || user_fname.length == "") {
+	      jQuery('#validate_fname').show();
+	      jQuery('#validate_fname').html("** use only alphabatics A-Z or a-z");
+	      jQuery('#validate_fname').focus();
+	      vfname = false;
+	      return false;
+	    } else {
 
-  function fn_check() {
-    let user_val = jQuery('#fn').val();
-    let name_regex = /^[a-zA-Z]+$/;
-    if (!user_val.match(name_regex) || user_val.length == "") {
-      jQuery('#validate_fname').show();
-      jQuery('#validate_fname').html("** use only alphabatics A-Z or a-z");
-      jQuery('#validate_fname').focus();
-      vfname = false;
-      return false;
-    } else {
+	      jQuery('#validate_fname').hide();
+	      return true;
 
-      jQuery('#validate_fname').hide();
-      return true;
+	    }
 
-    }
-  }*/
+	});
+	  	jQuery('#lname').keyup(function() {
 
+		    let user_lname = jQuery('#lname').val();
+		    let lname_regex = /^[a-zA-Z]+$/;
+		    if (!user_lname.match(lname_regex) || user_lname.length == "") {
+		      jQuery('#validate_lname').show();
+		      jQuery('#validate_lname').html("** use only alphabatics A-Z or a-z");
+		      jQuery('#validate_lname').focus();
+		      vlname = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_lname').hide();
+		      return true;
+
+		    }
+
+		});
+	  	jQuery('#email').keyup(function() {
+
+		    let mail = jQuery('#email').val();
+		    let email_regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		    if (!mail.match(email_regex) || email.length == 0) {
+		      jQuery('#validate_email').show();
+		      jQuery('#validate_email').html("** use proper format using @ with alphabatics A-Z or a-z");
+		      jQuery('#validate_email').focus();
+		      vmail = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_email').hide();
+		      return true;
+
+		    }
+		});
+		jQuery('#contact').keyup(function() {
+
+		    let contact = jQuery('#contact').val();
+		    let contact_regex=/^(\d{10}|\d{11}|\d{12})$/;
+
+		    if (!contact.match(contact_regex) || contact.length == 0) {
+		      jQuery('#validate_contact').show();
+		      jQuery('#validate_contact').html("** please write correct-contact");
+		      jQuery('#validate_contact').focus();
+		      vcontact = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_contact').hide();
+		      return true;
+
+		    }
+		});
+		jQuery('#address').keyup(function() {
+			 let address = jQuery('#address').val();
+		     let address_regex = /^[a-zA-Z]+$/;
+		     if (!address.match(address_regex) || address.length == 0) {
+		      jQuery('#validate_address').show();
+		      jQuery('#validate_address').html("** please write your address");
+		      jQuery('#validate_address').focus();
+		      address = false;
+		      return false;
+		      } else {
+			  jQuery('#validate_address').hide();
+		      return true;
+
+		    }
+		});
+
+  		jQuery('#savebutton').on('click',function(e){
+            e.preventDefault();
+            jQuery("#data_form")[0].reset();
+
+        });
+   //update form
+   	  	jQuery('#update_fname').keyup(function() {
+
+	    let user_ufname = jQuery('#update_fname').val();
+	    let ufname_regex = /^[a-zA-Z]+$/;
+	    if (!user_ufname.match(ufname_regex) || user_ufname.length == "") {
+	      jQuery('#validate_update_fname').show();
+	      jQuery('#validate_update_fname').html("** use only alphabatics A-Z or a-z");
+	      jQuery('#validate_update_fname').focus();
+	      ufname = false;
+	      return false;
+	    } else {
+
+	      jQuery('#validate_update_fname').hide();
+	      return true;
+
+	    }
+
+	});
+	  	jQuery('#update_lname').keyup(function() {
+
+		    let user_ulname = jQuery('#update_lname').val();
+		    let ulname_regex = /^[a-zA-Z]+$/;
+		    if (!user_ulname.match(ulname_regex) || user_ulname.length == "") {
+		      jQuery('#validate_update_lname').show();
+		      jQuery('#validate_update_lname').html("** use only alphabatics A-Z or a-z");
+		      jQuery('#validate_update_lname').focus();
+		      ulname = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_update_lname').hide();
+		      return true;
+
+		    }
+
+		});
+	  	jQuery('#update_email').keyup(function() {
+
+		    let umail = jQuery('#update_email').val();
+		    let uemail_regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		    if (!umail.match(uemail_regex) || uemail.length == 0) {
+		      jQuery('#validate_update_email').show();
+		      jQuery('#validate_update_email').html("** use proper format using @ with alphabatics A-Z or a-z");
+		      jQuery('#validate_update_email').focus();
+		      umail = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_update_email').hide();
+		      return true;
+
+		    }
+		});
+		jQuery('#update_contact').keyup(function() {
+
+		    let ucontact = jQuery('#update_contact').val();
+		    let ucontact_regex=/^(\d{10}|\d{11}|\d{12})$/;
+
+		    if (!ucontact.match(ucontact_regex) || ucontact.length == 0) {
+		      jQuery('#validate_update_contact').show();
+		      jQuery('#validate_update_contact').html("** please write correct-contact");
+		      jQuery('#validate_update_contact').focus();
+		      ucontact = false;
+		      return false;
+		    } else {
+
+		      jQuery('#validate_update_contact').hide();
+		      return true;
+
+		    }
+		});
+		jQuery('#update_address').keyup(function() {
+			 let uaddress = jQuery('#update_address').val();
+		     let uaddress_regex = /^[a-zA-Z]+$/;
+		     if (!uaddress.match(uaddress_regex) || uaddress.length == 0) {
+		      jQuery('#validate_update_address').show();
+		      jQuery('#validate_update_address').html("** please write your address");
+		      jQuery('#validate_update_address').focus();
+		      vaddress = false;
+		      return false;
+		      } else {
+			  jQuery('#validate_update_address').hide();
+		      return true;
+
+		    }
+		});
+
+  		jQuery('#updatebutton').on('click',function(e){
+            e.preventDefault();
+           
+
+        });
 });
 //fetching data
 
@@ -81,12 +259,13 @@ jQuery(document).ready(function(){
 
 	}
 //form-modal
+
  	function GetuserDeatils(id){
 	 	jQuery('#hidden_user_id').val(id);
 	 	jQuery.post("backend1.php", {
 	 		id:id
 	 		}, function(data,status){
-	 			var user = JSON. parse(data);
+	 			var user = JSON.parse(data);
 	 			jQuery('#update_fname').val(user.fname);
 	 			jQuery('#update_lname').val(user.lname);
 	 			jQuery('#update_email').val(user.email);
@@ -96,7 +275,26 @@ jQuery(document).ready(function(){
 	 	);
 	 	jQuery('#update_user_modal').modal("show");
 	 }
-	//update
+	
+	// jQuery(document).on('click','#updatebutton',function(e) {
+	// 	var data = jQuery("#update_form").serialize();
+	// 	jQuery.ajax({
+	// 		data: data,
+	// 		type: "post",
+	// 		url: "backend1.php",
+	// 		success: function(dataResult){
+	// 				// var dataResult =JSON.parse(dataResult);
+	// 				if(dataResult.statusCode==200){
+	// 					jQuery('#update_user_modal').modal('hide');
+	// 					alert('Data updated successfully !'); 
+ //                        location.reload();						
+	// 				}
+	// 				else if(dataResult.statusCode==201){
+	// 				   alert(dataResult);
+	// 				}
+	// 		}
+	// 	});
+	// });
 	function updateuserdetails(){
 		 var fname = jQuery('#update_fname').val();
 		 var lname = jQuery('#update_lname').val();
@@ -117,7 +315,9 @@ jQuery(document).ready(function(){
 		 function(data,status){
 		 	jQuery('#update_user_modal').modal("hide");
 		 	readRecords();
+
 		 }
 		 );
 
 	}
+

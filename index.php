@@ -32,7 +32,7 @@
 		        <div class="form-group">
 		        	<label>First name:</label>
 		        	<input type="text" name="fname" id="fname" class="form-control" placeholder="enter your  first name">
-		        	    <p id="validate_fname" class="text-danger font-weight-bold"></p>
+		        	<span id="validate_fname" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		         <div class="form-group">
@@ -63,6 +63,7 @@
 
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
+		      	<input type="hidden" value="1" name="type">
 		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="insertdata()">Save</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		      </div>
@@ -89,33 +90,39 @@
 		        <div class="form-group">
 		        	<label>First name:</label>
 		        	<input type="text" name="update_fname" id="update_fname" class="form-control" placeholder="enter your  first name">
+		        	<span id="validate_update_fname" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Last name:</label>
 		        	<input type="text" name="update_lname" id="update_lname" class="form-control" placeholder="enter your last name">
+		        	<span id="validate_update_lname" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Email:</label>
 		        	<input type="email" name="update_email" id="update_email" class="form-control" placeholder="enter your email">
+		        	<span id="validate_update_email" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		          <div class="form-group">
 		        	<label>Contact:</label>
 		        	<input type="text" name="update_contact" id="update_contact" class="form-control" placeholder="enter your contact">
+		        	<span id="validate_update_contact" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		         <div class="form-group">
 		        	<label>Address:</label>
 		        	<TEXTAREA cols="50" name="update_address" id="update_address" class="form-control" placeholder="enter your address"></TEXTAREA>
+		        	<span id="validate_update_address" class="text-danger font-weight-bold"></span>
 		        </div>
 
 		      </div>
 
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
-		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="updateuserdetails()">update</button>
+		      	<input type="hidden" value="2" name="type">
+		      	 <button type="button" class="btn btn-success" id="updatebutton" data-dismiss="modal" onclick="updateuserdetails()">update</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		        <input type="hidden" name="hidden_user_id" id="hidden_user_id">
 		      </div>

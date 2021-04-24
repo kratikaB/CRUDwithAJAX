@@ -51,10 +51,10 @@ if(isset($_POST['readrecords'])){
 //insert data
 if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['address']))
 {
-	// var_dump($fname, 'Hello there');
 	$query = "INSERT INTO crudtable (fname, lname, email, contact, address) VALUES ( '$fname', '$lname', '$email', '$contact', '$address')";
-	
-	mysqli_query($conn, $query);
+	$check_insrt = mysqli_query($conn, $query);
+	// var_dump($check_insrt,$query);
+	// die;
 }
 //delete the record
 if(isset($_POST['deleteid'])){
