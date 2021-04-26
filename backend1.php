@@ -49,12 +49,30 @@ if(isset($_POST['readrecords'])){
 	echo $data;
 }
 //insert data
-if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['address']))
-{
-	$query = "INSERT INTO crudtable (fname, lname, email, contact, address) VALUES ( '$fname', '$lname', '$email', '$contact', '$address')";
-	$check_insrt = mysqli_query($conn, $query);
-	// var_dump($check_insrt,$query);
-	// die;
+if($_POST['type']==1){
+	$len = 8;
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#$%^&*()";
+    $password = substr( str_shuffle( $chars ), 0, $len );
+    $enc_pass = md5($password);
+
+	if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['contact']) && isset($_POST['address']))
+	{
+		$query = "INSERT INTO crudtable (fname, lname, email, contact, address, password) VALUES ( '$fname', '$lname', '$email', '$contact', '$address', '$enc_pass')";
+		$check_insrt = mysqli_query($conn, $query);
+		ini_set("SMTP", "smtp.server.com");
+		$to = $email;
+		$subject = 'Credentials';
+		$message = sprintf('Hi Your email is %s<br> Your password is %s',$email,$password); 
+		$from = 'kratikabhagat823@gmail.com';
+		 
+		 var_dump($to);
+		// Sending email
+		if(mail($to, $subject, $message)){
+		    echo 'Your mail has been sent successfully.';
+		} else{
+		    echo 'Unable to send email. Please try again.';
+		}
+	}
 }
 //delete the record
 if(isset($_POST['deleteid'])){

@@ -135,8 +135,8 @@ jQuery(document).ready(function(){
 		}
 
 
-  		jQuery("#data_form").on('click',function(){
-         /*   e.preventDefault();*/
+  		jQuery("#savebutton").on('click',function(e){
+            e.preventDefault();
             let firstname = fn_check();
             let lastname = ln_check();
             let eemail = email_check();
@@ -145,6 +145,17 @@ jQuery(document).ready(function(){
 
             if(firstname && lastname && eemail &&  ccontact && aaddress != false){
             	alert("Registration success");
+            	var data = jQuery("#data_form").serialize();
+				jQuery.ajax({
+					data: data,
+					method: 'post',
+					url:"backend1.php",
+					success:function(data,status)
+					{
+						readRecords();
+
+					}
+				});
             	return true;
             }
             else{
@@ -266,7 +277,27 @@ jQuery(document).ready(function(){
 
   		jQuery('#updatebutton').on('click',function(e){
             e.preventDefault();
-           
+            var fname = jQuery('#update_fname').val();
+			 var lname = jQuery('#update_lname').val();
+			 var email = jQuery('#update_email').val();
+			 var contact = jQuery('#update_contact').val();
+			 var address = jQuery('#update_address').val();
+
+			 var hidden_user_id = jQuery('#hidden_user_id').val();
+
+			 jQuery.post("backend1.php", {
+			 	hidden_user_id:hidden_user_id,
+			 	fname:fname,
+			 	lname:lname,
+			 	email:email,
+			 	contact:contact,
+			 	address:address,
+				}, function(data,status){
+				 	jQuery('#update_user_modal').modal("hide");
+				 	readRecords();
+
+				 }
+			 );
 
         });
 
@@ -287,19 +318,19 @@ jQuery(document).ready(function(){
 				});
 		}
 //inserting data
-	function insertdata(){
-	var data = jQuery("#data_form").serialize();
-		jQuery.ajax({
-			data: data,
-			method: 'post',
-			url:"backend1.php",
-			success:function(data,status)
-			{
-				readRecords();
+	// function insertdata(){
+	// var data = jQuery("#data_form").serialize();
+	// 	jQuery.ajax({
+	// 		data: data,
+	// 		method: 'post',
+	// 		url:"backend1.php",
+	// 		success:function(data,status)
+	// 		{
+	// 			readRecords();
 
-			}
-		});
-	}
+	// 		}
+	// 	});
+	// }
 //deleting data
 	function deleteuser(deleteid){
 		var conf = confirm("are you sure");
@@ -335,29 +366,29 @@ jQuery(document).ready(function(){
 	 	jQuery('#update_user_modal').modal("show");
 	 }
 
-	function updateuserdetails(){
-		 var fname = jQuery('#update_fname').val();
-		 var lname = jQuery('#update_lname').val();
-		 var email = jQuery('#update_email').val();
-		 var contact = jQuery('#update_contact').val();
-		 var address = jQuery('#update_address').val();
+	// function updateuserdetails(){
+	// 	 var fname = jQuery('#update_fname').val();
+	// 	 var lname = jQuery('#update_lname').val();
+	// 	 var email = jQuery('#update_email').val();
+	// 	 var contact = jQuery('#update_contact').val();
+	// 	 var address = jQuery('#update_address').val();
 
-		 var hidden_user_id = jQuery('#hidden_user_id').val();
+	// 	 var hidden_user_id = jQuery('#hidden_user_id').val();
 
-		 jQuery.post("backend1.php", {
-		 	hidden_user_id:hidden_user_id,
-		 	fname:fname,
-		 	lname:lname,
-		 	email:email,
-		 	contact:contact,
-		 	address:address,
-		 },
-		 function(data,status){
-		 	jQuery('#update_user_modal').modal("hide");
-		 	readRecords();
+	// 	 jQuery.post("backend1.php", {
+	// 	 	hidden_user_id:hidden_user_id,
+	// 	 	fname:fname,
+	// 	 	lname:lname,
+	// 	 	email:email,
+	// 	 	contact:contact,
+	// 	 	address:address,
+	// 	 },
+	// 	 function(data,status){
+	// 	 	jQuery('#update_user_modal').modal("hide");
+	// 	 	readRecords();
 
-		 }
-		 );
+	// 	 }
+	// 	 );
 
-	}
+	// }
 

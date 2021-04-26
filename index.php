@@ -64,7 +64,7 @@
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
 		      	<input type="hidden" value="1" name="type">
-		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="insertdata()">Save</button>
+		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal">Save</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
 		      </div>
 		      </form>
@@ -122,7 +122,7 @@
 		      <!-- Modal footer -->
 		      <div class="modal-footer">
 		      	<input type="hidden" value="2" name="type">
-		      	 <button type="button" class="btn btn-success" id="updatebutton" data-dismiss="modal" onclick="updateuserdetails()">update</button>
+		      	 <button type="button" class="btn btn-success" id="updatebutton" data-dismiss="modal">update</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 		        <input type="hidden" name="hidden_user_id" id="hidden_user_id">
 		      </div>
