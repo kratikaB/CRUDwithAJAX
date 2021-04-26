@@ -25,7 +25,12 @@ jQuery(document).ready(function(){
   		let ucontact = true;
   		let uaddress = true;
 		
+
 		jQuery('#fname').keyup(function() {
+			 fn_check();
+  		});
+
+  		function fn_check() {
 		let user_fname = jQuery('#fname').val();
 	    let fname_regex = /^[a-zA-Z]+$/;
 	    if (!user_fname.match(fname_regex) || user_fname.length == "") {
@@ -41,8 +46,12 @@ jQuery(document).ready(function(){
 
 	    }
 
-	});
+	}
 	  	jQuery('#lname').keyup(function() {
+	  			 ln_check();
+  		});
+
+  		function ln_check() {
 
 		    let user_lname = jQuery('#lname').val();
 		    let lname_regex = /^[a-zA-Z]+$/;
@@ -59,8 +68,12 @@ jQuery(document).ready(function(){
 
 		    }
 
-		});
+		}
 	  	jQuery('#email').keyup(function() {
+	  		email_check();
+  		});
+
+  		function email_check() {
 
 		    let mail = jQuery('#email').val();
 		    let email_regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -77,8 +90,12 @@ jQuery(document).ready(function(){
 		      return true;
 
 		    }
-		});
+		}
 		jQuery('#contact').keyup(function() {
+			contact_check();
+  		});
+
+  		function contact_check() {
 
 		    let contact = jQuery('#contact').val();
 		    let contact_regex=/^(\d{10}|\d{11}|\d{12})$/;
@@ -95,31 +112,55 @@ jQuery(document).ready(function(){
 		      return true;
 
 		    }
-		});
+		}
 		jQuery('#address').keyup(function() {
+			address_check();
+  		});
+
+  		function address_check() {
+
 			 let address = jQuery('#address').val();
 		     let address_regex = /^[a-zA-Z]+$/;
 		     if (!address.match(address_regex) || address.length == 0) {
 		      jQuery('#validate_address').show();
 		      jQuery('#validate_address').html("** please write your address");
 		      jQuery('#validate_address').focus();
-		      address = false;
+		      vaddress = false;
 		      return false;
 		      } else {
 			  jQuery('#validate_address').hide();
 		      return true;
 
 		    }
-		});
+		}
 
 
-  		jQuery('#savebutton').on('click',function(e){
-            e.preventDefault();
+  		jQuery("#data_form").on('click',function(){
+         /*   e.preventDefault();*/
+            let firstname = fn_check();
+            let lastname = ln_check();
+            let eemail = email_check();
+            let ccontact = contact_check();
+            let aaddress = address_check();
+
+            if(firstname && lastname && eemail &&  ccontact && aaddress != false){
+            	alert("Registration success");
+            	return true;
+            }
+            else{
+            	alert("Registration failed");
+            	return false;
+            }
+
             jQuery("#data_form")[0].reset();
 
         });
    //update form
    	  	jQuery('#update_fname').keyup(function() {
+   	  		 ufn_check();
+  		});
+
+  		function ufn_check() {
 
 	    let user_ufname = jQuery('#update_fname').val();
 	    let ufname_regex = /^[a-zA-Z]+$/;
@@ -136,8 +177,12 @@ jQuery(document).ready(function(){
 
 	    }
 
-	});
+	}
 	  	jQuery('#update_lname').keyup(function() {
+	  		uln_check();
+  		});
+
+  		function uln_check() {
 
 		    let user_ulname = jQuery('#update_lname').val();
 		    let ulname_regex = /^[a-zA-Z]+$/;
@@ -154,8 +199,12 @@ jQuery(document).ready(function(){
 
 		    }
 
-		});
+		}
 	  	jQuery('#update_email').keyup(function() {
+	  		umail_check();
+  		});
+
+  		function umail_check() {
 
 		    let umail = jQuery('#update_email').val();
 		    let uemail_regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -172,8 +221,12 @@ jQuery(document).ready(function(){
 		      return true;
 
 		    }
-		});
+		}
 		jQuery('#update_contact').keyup(function() {
+				ucontact_check();
+  		});
+
+  		function ucontact_check() {
 
 		    let ucontact = jQuery('#update_contact').val();
 		    let ucontact_regex=/^(\d{10}|\d{11}|\d{12})$/;
@@ -190,8 +243,12 @@ jQuery(document).ready(function(){
 		      return true;
 
 		    }
-		});
+		}
 		jQuery('#update_address').keyup(function() {
+			uaddress_check();
+  		});
+
+  		function uaddress_check() {
 			 let uaddress = jQuery('#update_address').val();
 		     let uaddress_regex = /^[a-zA-Z]+$/;
 		     if (!uaddress.match(uaddress_regex) || uaddress.length == 0) {
@@ -205,13 +262,14 @@ jQuery(document).ready(function(){
 		      return true;
 
 		    }
-		});
+		}
 
   		jQuery('#updatebutton').on('click',function(e){
             e.preventDefault();
            
 
         });
+
 });
 //fetching data
 

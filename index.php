@@ -65,7 +65,7 @@
 		      <div class="modal-footer">
 		      	<input type="hidden" value="1" name="type">
 		      	 <button type="button" class="btn btn-success" id="savebutton" data-dismiss="modal" onclick="insertdata()">Save</button>
-		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
 		      </div>
 		      </form>
 		    </div>
